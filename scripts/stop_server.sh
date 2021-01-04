@@ -1,7 +1,7 @@
 #!/bin/bash
-isExistApp=`pgrep httpd`
+isExistApp=`pgrep apache2`
 if [[ -n  $isExistApp ]]; then
-   service httpd stop
+   service apache2 stop
 fi
 isExistApp=`pgrep mysqld`
 if [[ -n  $isExistApp ]]; then
