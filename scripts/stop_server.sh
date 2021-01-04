@@ -1,9 +1,9 @@
 #!/bin/bash
 isExistApp=`pgrep apache2`
 if [[ -n  $isExistApp ]]; then
-   systemctl start apache2
+   systemctl stop apache2
 fi
-isExistApp=`pgrep mysqld`
+isExistApp=`pgrep mysql`
 if [[ -n  $isExistApp ]]; then
-    systemctl start mysql
+    systemctl stop mysql
 fi
