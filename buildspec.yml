@@ -1,0 +1,24 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - rm -rf /root/.phpenv
+      - add-apt-repository -y ppa:ondrej/php
+      - apt -qq update -y
+      - apt -qq install php libapache2-mod-php php-mysql -y
+      - apt -qq install php-curl php-gd php-xml php-mbstring php-xmlrpc php-zip php-soap php-intl -y
+      
+  build:
+    commands:
+      - mv wp-config-sample.php wp-config.php
+      - sed -i "s|admin|$host|g" wp-config.php
+      - sed -i "s|admin|$username|g" wp-config.php
+      - sed -i "s|admin123|$pass|g" wp-config.php
+      - sed -i "s|admin.cfdyrms3ajre.ap-south-1.rds.amazonaws.com|$endpoint|g" wp-config.php
+      - sed -i "s|:3306||g" wp-config.php
+      - cat wp-config.php
+      
+artifacts:
+  files:
+    - "**/*"
+    
