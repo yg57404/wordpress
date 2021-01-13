@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                 sh 'mkdir /root/yogesh' 
+                 sh 'sudo mkdir /root/yogesh' 
             }
         }
     }
